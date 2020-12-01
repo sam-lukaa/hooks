@@ -20,7 +20,7 @@ export default function TodoList() {
   );
 }
 
-function TodoItem({ completed, id }) {
+function TodoItem({ id, text, completed }) {
   const dispatch = useDispatchContext();
 
   return (
@@ -30,7 +30,7 @@ function TodoItem({ completed, id }) {
         checked={completed}
         onChange={() => dispatch({ type: "COMPLETED", payload: id })}
       />
-      <input type="text" defaultValue={id} />
+      <input type="text" defaultValue={text} />
       <button onClick={() => dispatch({ type: "DELETE", payload: id })}>
         X
       </button>
